@@ -10,8 +10,8 @@ const register = async (req, res) => {
     if (data.length) return res.status(409).json("User already exists!");
 
     const q =
-      "INSERT INTO user (email, username, password, balance, equity, commission) VALUES (?)";
-    const values = [req.body.email, req.body.username, req.body.password, 0, 0, 0];
+      "INSERT INTO user (email, username, password, role, ports) VALUES (?)";
+    const values = [req.body.email, req.body.username, req.body.password, 0, 10001];
 
     db.query(q, [values], (err, data) => {
       if (err) {
